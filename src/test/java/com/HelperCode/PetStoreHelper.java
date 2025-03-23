@@ -1,27 +1,29 @@
 package com.HelperCode;
 
 import com.api.executor.ApiExecutor;
+import com.api.utils.JsonUtils;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.Map;
 
 public class PetStoreHelper {
     private static final String BASE_URL = "https://petstore.swagger.io/v2";
 
-    public static String loadRequestTemplate(String filePath) throws IOException {
-        return new String(Files.readAllBytes(Paths.get(filePath)));
-    }
+    public static Response createPet(int id, String name, String status) {
+        // Creating a map to store pet details
+        Map<String, Object> petDetails = new HashMap<>();
+        petDetails.put("id", id);
+        petDetails.put("name", name);
+        petDetails.put("status", status);
 
-    public static Response createPet(int id, String name, String status) throws IOException {
-        String filePath = "/Users/animesh.c/IdeaProjects/api-test-framework/src/Resource/CreatePet.json";
-        String requestBody = loadRequestTemplate(filePath)
-                .replace("{id}", String.valueOf(id))
-                .replace("{name}", name)
-                .replace("{status}", status);
+        // Convert map to JSON string using JsonUtils
+        String requestBody = JsonUtils.getJsonPayload(petDetails);
 
+        // Sending POST request
         return ApiExecutor.sendPostRequest(BASE_URL + "/pet", requestBody);
     }
 }
