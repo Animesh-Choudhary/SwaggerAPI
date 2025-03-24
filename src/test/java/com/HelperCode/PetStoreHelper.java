@@ -14,6 +14,11 @@ public class PetStoreHelper {
     private static final String BASE_URL = "https://petstore.swagger.io/v2";
 
     public static Response createPet(int id, String name, String status) {
+        String filePath = "/Users/animesh.c/IdeaProjects/api-test-framework/src/Resource/CreatePet.json";
+
+        // Load JSON template from file
+        String jsonTemplate = JsonUtils.loadJsonTemplate(filePath);
+
         // Creating a map to store pet details
         Map<String, Object> petDetails = new HashMap<>();
         petDetails.put("id", id);

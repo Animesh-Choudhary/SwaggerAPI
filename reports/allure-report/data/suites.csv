@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"Pet Creation..","2386","testCreatePet","Default Suite","Sun Mar 23 23:56:47 IST 2025","passed","Sun Mar 23 23:56:49 IST 2025","com.api.tests.TestCreate","api-test-framework","com.api.tests.TestCreate","testCreatePet"
+"Pet Creation..","2275","testCreatePet","Default Suite","Mon Mar 24 10:17:19 IST 2025","passed","Mon Mar 24 10:17:22 IST 2025","com.api.tests.TestCreate","api-test-framework","com.api.tests.TestCreate","testCreatePet"
